@@ -1,0 +1,50 @@
+---
+title: "Torch Notebook"
+output: html_notebook
+---
+
+```{r}
+library(reticulate)
+setwd('/Users/Bryan/Documents/Programming/useR')
+```
+
+
+```{r}
+use_condaenv('pytorch', conda = '/Users/Bryan/anaconda/envs/pytorch/')
+
+```
+
+```{python}
+import pandas
+import torch
+```
+
+
+```{python helper}
+def describe(x):
+    print("Type: {}".format(x.type()))
+    print("Shape/size: {}".format(x.shape))
+    print("Values: \n{}".format(x))
+    
+describe(torch.rand(2,3))
+
+
+```
+
+
+```{python}
+describe(torch.zeros(2,3))
+
+```
+
+```{python}
+x = torch.ones(2,3)
+describe(x)
+
+```
+
+```{python}
+x.fill_(5)
+describe(x)
+```
+
